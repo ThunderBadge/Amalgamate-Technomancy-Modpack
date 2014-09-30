@@ -1,4 +1,5 @@
 //Modpack Recipe Sheet
+print("Injecting the Essence of GregTech into your Game.");
 <BuildCraft|Factory:refineryBlock>.addTooltip("Use the GregTech Distillery instead.");	
 				
 		//Assign all items to a Variable. (I personally like using variables, despite being quite Obsessive with it.)
@@ -648,24 +649,6 @@ recipes.addShaped(<minecraft:bed>, [[stick, <ore:craftingToolScrewdriver>.transf
 recipes.addShaped(<CarpentersBlocks:itemCarpentersBed>, [[<ore:blockWool>, <minecraft:carpet>, <minecraft:carpet>], [<CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>], [<ore:craftingToolScrewdriver>.transformDamage(500), null, <ore:craftingToolHardHammer>.transformDamage(500)]]);
 <minecraft:bed>.addTooltip("For Early Game Use Sleeping Bag Instead");
 
-//Drop the Ability for Potential Magic Mod OPness.
-
-<Thaumcraft:WandCap>.displayName = "Steel Wand Cap";
-
-recipes.remove(<Botania:altar>);
-recipes.remove(<Thaumcraft:WandCap>);
-recipes.remove(<Thaumcraft:WandCasting>);
-recipes.remove(<witchery:witchesovenidle>);
-recipes.remove(<witchery:distilleryidle>);
-
-recipes.addShaped(<Botania:altar>, [[<minecraft:stone_slab>, <Botania:petal:*>, <minecraft:stone_slab>], [null, <ore:stoneSmooth>, null], [<ore:stoneSmooth>, <ore:craftingToolFile>.transformDamage(500), <ore:stoneSmooth>]]);
-recipes.addShaped(<Thaumcraft:WandCap>, [[<ore:roundSteel>, <ore:roundSteel>, <ore:roundSteel>], [<ore:roundSteel>, null, <ore:roundSteel>], [null, <ore:craftingToolHardHammer>.transformDamage(500), null]]);
-recipes.addShaped(<Thaumcraft:WandCasting>, [[null, <ore:ringSteel>, <Thaumcraft:WandCap>], [<ore:ringSteel>, stick, <ore:ringSteel>], [<Thaumcraft:WandCap>, <ore:ringSteel>, null]]); 
-recipes.addShaped(<witchery:witchesovenidle>, [[null, <ore:pipeMediumSteel>, null], [steelplate, <minecraft:furnace>, steelplate], [steelplate, <minecraft:iron_bars>, steelplate]]);
-recipes.addShaped(<witchery:distilleryidle>, [[<witchery:ingredient:27>, steelplate, <witchery:ingredient:27>], [steelplate, steelplate, steelplate], [<ore:ingotGold>, <witchery:ingredient:10>, <ore:ingotGold>]]);
-
-
-
 //Because Wool is 200% not logical
 
 recipes.removeShaped(<appliedenergistics2:item.ItemMultiPart:36>, [[<appliedenergistics2:item.ItemMultiPart:16>], [<minecraft:wool:*>]]);
@@ -699,3 +682,59 @@ recipes.remove(<IC2:itemToolMiningLaser>);
 recipes.addShaped(<IC2:itemToolMiningLaser>, [
 [<gregtech:gt.metaitem.01:24502>, <IC2:reactorCoolantSix>, <IC2:itemBatCrystal:*>], [<gregtech:gt.metaitem.01:17028>, <gregtech:gt.metaitem.01:17028>, <ore:circuitAdvanced>], [null, <IC2:itemPartAlloy>, <IC2:itemPartAlloy>]]);
 
+//Some Railcraft Tweaks
+
+oreDict.blockSteel.add(<Railcraft:tile.railcraft.cube:2>);
+oreDict.blockSteel.add(<IC2:blockMetal:5>);
+
+<Railcraft:tile.railcraft.cube:2>.addTooltip("Use Refined Iron Block Instead");
+
+recipes.remove(<Railcraft:part.turbine.disk>);
+recipes.remove(<Railcraft:tile.railcraft.detector:10>);
+recipes.remove(<Railcraft:tile.railcraft.machine.epsilon>);
+recipes.remove(<Railcraft:tile.railcraft.track:15297>.withTag({track:"railcraft:track.coupler"}));
+recipes.remove(<Railcraft:tile.railcraft.machine.gamma:9>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:13>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:14>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:15>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:3>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:4>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:6>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:1>);
+recipes.remove(<Railcraft:tile.railcraft.machine.beta:2>);
+recipes.remove(<Railcraft:tile.railcraft.machine.alpha:3>);
+recipes.remove(<Railcraft:tile.railcraft.machine.alpha:11>);
+recipes.remove(<Railcraft:tile.railcraft.machine.alpha:13>);
+recipes.remove(<Railcraft:tile.railcraft.machine.alpha:1>);
+recipes.remove(<Railcraft:tile.railcraft.machine.alpha:6>);
+recipes.remove(<Railcraft:tile.railcraft.track:2264>.withTag({track:"railcraft:track.disposal"}));
+recipes.remove(<Railcraft:part.rebar>);
+recipes.remove(<Railcraft:part.rail>);
+recipes.remove(<Railcraft:tile.railcraft.frame>);
+
+recipes.addShaped(<Railcraft:part.turbine.disk>, [[<IC2:itemRecipePart:10>, <IC2:itemRecipePart:10>, <IC2:itemRecipePart:10>], [<IC2:itemRecipePart:10>, <IC2:blockMetal:5>, <IC2:itemRecipePart:10>], [<IC2:itemRecipePart:10>, <IC2:itemRecipePart:10>, <IC2:itemRecipePart:10>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.detector:10>, [[<ore:plateTin>, <ore:plateTin>, <ore:plateTin>], [<ore:plateTin>, <minecraft:stone_pressure_plate>, <ore:plateTin>], [<ore:plateTin>, <ore:plateTin>, <ore:plateTin>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.epsilon>, [[<ore:plateTin>, <ore:ingotCopper>, <ore:plateTin>], [<ore:ingotCopper>, <ore:ingotCopper>, <ore:ingotCopper>], [<ore:plateTin>, <ore:ingotCopper>, <ore:plateTin>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.track:15297>.withTag({track:"railcraft:track.coupler"}), [[<Railcraft:part.rail:1>, <ore:craftingToolCrowbar>, <Railcraft:part.rail:1>], [<Railcraft:part.rail:1>, <Railcraft:part.railbed>, <Railcraft:part.rail:1>], [<Railcraft:part.rail:1>, <ore:craftingToolCrowbar>, <Railcraft:part.rail:1>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.gamma:9>, [[<minecraft:redstone>, <ore:craftingToolCrowbar>, <minecraft:redstone>], [<ore:craftingToolCrowbar>, <Railcraft:tile.railcraft.machine.gamma:8>, <ore:craftingToolCrowbar>], [<minecraft:redstone>, <ore:craftingToolCrowbar>, <minecraft:redstone>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:13> *4, [[steelplate, steelplate, null], [steelplate, steelplate, null], [null, null, null]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:14> * 4, [[<ore:paneGlass>, steelplate, <ore:paneGlass>], [steelplate, <ore:paneGlass>, steelplate], [<ore:paneGlass>, steelplate, <ore:paneGlass>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:15> * 4, [[<minecraft:iron_bars>, steelplate, <minecraft:iron_bars>], [steelplate, <minecraft:lever>, steelplate], [<minecraft:iron_bars>, steelplate, <minecraft:iron_bars>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:3>, [[<ore:plateIron>, null, null], [<ore:plateIron>, null, null]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:4>, [[steelplate, null, null], [steelplate, null, null]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:6>, [[steelplate, <minecraft:bucket>, steelplate], [<minecraft:iron_bars>, <minecraft:fire_charge>, <minecraft:iron_bars>], [steelplate, <minecraft:furnace>, steelplate]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta> * 4, [[ironplate, ironplate, null], [ironplate, ironplate, null]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:1> * 4, [[<ore:paneGlass>, ironplate, <ore:paneGlass>], [ironplate, <ore:paneGlass>, ironplate], [<ore:paneGlass>, ironplate, <ore:paneGlass>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.beta:2> * 4, [[<minecraft:iron_bars>, ironplate, <minecraft:iron_bars>], [ironplate, <minecraft:lever>, ironplate], [<minecraft:iron_bars>, ironplate, <minecraft:iron_bars>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:3> * 4, [[steelplate, steelplate, steelplate], [steelplate, <minecraft:furnace>, steelplate], [steelplate, steelplate, steelplate]]);
+recipes.addShaped(<Railcraft:tile.railcraft.track:2264>.withTag({track:"railcraft:track.disposal"}), [[<Railcraft:part.rail>, <Railcraft:part.tie>, <Railcraft:part.rail>], [<Railcraft:part.rail>, steelplate, <Railcraft:part.rail>], [<Railcraft:part.rail>, <Railcraft:part.tie>, <Railcraft:part.rail>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:11>, [[<ore:plankWood>, <minecraft:golden_carrot>, <ore:plankWood>], [<minecraft:golden_carrot>, steelplate, <minecraft:golden_carrot>], [<ore:plankWood>, <minecraft:golden_carrot>, <ore:plankWood>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:13>, [[<minecraft:diamond_pickaxe>, steelplate, <minecraft:book>], [steelplate, <minecraft:crafting_table>, steelplate], [<minecraft:piston>, steelplate, <minecraft:piston>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:1>, [[<ore:blockSteel>, steelplate, <ore:blockSteel>], [steelplate, null, steelplate], [<ore:blockSteel>, steelplate, <ore:blockSteel>]]);
+recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:6>, [[steelplate, <ore:paneGlass>, steelplate], [<ore:gemEmerald>, <minecraft:dispenser>, <ore:gemEmerald>], [steelplate, <ore:paneGlass>, steelplate]]);
+recipes.addShaped(<Railcraft:tile.railcraft.frame>, [[ironplate, ironplate, ironplate], [stick, null, stick], [stick, stick, stick]]);
+
+
+
+print("Injection Completed --Ow, that Hurt.");
