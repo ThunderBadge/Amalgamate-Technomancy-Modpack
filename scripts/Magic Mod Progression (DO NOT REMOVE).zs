@@ -254,9 +254,18 @@ mods.thaumcraft.Infusion.addRecipe("PETAL", <Thaumcraft:blockStoneDevice:1>, [<B
 mods.thaumcraft.Research.addInfusionPage("PETAL", <Botania:altar>);
 mods.thaumcraft.Research.setSpikey("PETAL", true);
 
+mods.thaumcraft.Research.addResearch("BLOODALTAR", "TT_CATEGORY", "fames 700, victus 500, mortuus 300, permutatio 600", 6, 12, 8, <AWWayofTime:Altar>);
+game.setLocalization("en_US", "tc.research_name.BLOODALTAR", "Blood Altar");
+game.setLocalization("en_US", "tc.research_text.BLOODALTAR", "[AT] Who needs it anyway?");
+mods.thaumcraft.Research.addPrereq("BLOODALTAR", "ICHOR", false);
+mods.thaumcraft.Research.addPage("BLOODALTAR", "bloodmagic.research_page.BLOODALTAR");
+game.setLocalization("en_US", "bloodmagic.research_page.BLOODALTAR", "Through many readings of forbidden texts and the discovery of Ichor, proving the existence of the Gods. You have learned that they feed off of the life essence of mortals. Considering the nature of the gods, you believe you might have an idea to use this as an opportunity to gain even more power.<BR>The Blood Altar is a block that, when given the blood of living (or dead) creatures, will transmute certain items into other items at the cost of said blood.");
+mods.thaumcraft.Infusion.addRecipe("BLOODALTAR", <Botania:altar>, [<minecraft:diamond>, <minecraft:gold_ingot>, <minecraft:gold_ingot>, <ThaumicTinkerer:kamiResource>, <ThaumicTinkerer:kamiResource>, <ThaumicTinkerer:kamiResource>], "fames 50, victus 50, mortuus 50, cognitio 50, corpus 50", <AWWayofTime:Altar>, 10);
+mods.thaumcraft.Research.addInfusionPage("BLOODALTAR", <AWWayofTime:Altar>);
+mods.thaumcraft.Research.addCraftingPage("BLOODALTAR", <AWWayofTime:sacrificialKnife>);
+mods.thaumcraft.Research.setSpikey("BLOODALTAR", true);
 
-
-
+mods.thaumcraft.Research.addPrereq("ICHOR", "PETAL");
 
 
 

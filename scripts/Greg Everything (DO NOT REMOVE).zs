@@ -126,6 +126,7 @@ print("Injecting the Essence of GregTech into your Game.");
 	var ivpump = <gregtech:gt.metaitem.01:32614>;
 	var hvpump = <gregtech:gt.metaitem.01:32612>;
 	var lvpump = <gregtech:gt.metaitem.01:32610>;
+	var mvpump = <gregtech:gt.metaitem.01:32611>;
 	var ivconvey = <gregtech:gt.metaitem.01:32634>;
 	var hvconvey = <gregtech:gt.metaitem.01:32632>;
 	var mvconvey = <gregtech:gt.metaitem.01:32631>;
@@ -153,6 +154,28 @@ print("Injecting the Essence of GregTech into your Game.");
 	var glowdye = <Genetics:misc:2>;
 	var dnadye = <Genetics:misc:1>;
 	var binniecircuit = <Genetics:misc:9>;
+	var bluealloycable = <gregtech:gt.blockmachines:1486>;
+	var bluealloywire = <gregtech:gt.blockmachines:1480>;
+	var rubbersheet = <ore:sheetRubber>;
+	var whitewool = <ore:blockWoolWhite>;
+	var orangewool = <ore:blockWoolOrange>;
+	var magentawool = <ore:blockWoolMagenta>;
+	var lightbluewool = <ore:blockWoolLightBlue>;
+	var yellowwool = <ore:blockWoolYellow>;
+	var limewool = <ore:blockWoolLime>;
+	var pinkwool = <ore:blockWoolPink>;
+	var graywool = <ore:blockWoolGray>;
+	var lightgraywool = <ore:blockWoolLightGray>;
+	var cyanwool = <ore:blockWoolCyan>;
+	var purplewool = <ore:blockWoolPurple>;
+	var bluewool = <ore:blockWoolBlue>;
+	var brownwool = <ore:blockWoolBrown>;
+	var greenwool = <ore:blockWoolGreen>;
+	var redwool = <ore:blockWoolRed>;
+	var blackwool = <ore:blockWoolBlack>;
+	var tungstencable = <gregtech:gt.blockmachines:1566>;
+	var chromeplate = <ore:plateChrome>;
+	var portalframe = <enhancedportals:frame>;
 
 //Change Iron Chests recipes to fit GT.
 	//Remove the Default Recipes
@@ -429,11 +452,6 @@ recipes.addShaped(<EnderStorage:enderChest>, [[obsidianplate, <IC2:blockMachine2
 recipes.addShaped(<EnderStorage:enderChest:4096>, [[obsidianplate, <IC2:blockMachine2>, obsidianplate], [<minecraft:blaze_rod>, <minecraft:cauldron>, <minecraft:blaze_rod>], [obsidianplate, endercore, obsidianplate]]);
 recipes.addShaped(<EnderStorage:enderPouch>, [[obsidiandust, <IC2:blockMachine2>, obsidiandust], [<minecraft:blaze_powder>, <Forestry:minerBag>, <minecraft:blaze_powder>], [obsidiandust, endercore, obsidiandust]]);
 
-//Dimensional Anchor Change
-recipes.remove(<DimensionalAnchors:chunkloader>);
-
-recipes.addShaped(<DimensionalAnchors:chunkloader>, [[goldstick, steelplate, goldstick], [steelplate, endercore, steelplate], [goldstick, steelplate, goldstick]]);
-
 //Modify Logistics Pipes (Early Game Item Storage, moved to MV Tier)
 	//Remove Default Recipes
 recipes.remove(<LogisticsPipes:logisticsSolidBlock:1>);
@@ -659,10 +677,6 @@ recipes.addShaped(<appliedenergistics2:item.ItemMultiPart:36>, [[<appliedenergis
 
 recipes.remove(<Forestry:scoop>);
 
-//Project Red Recipes
-
-recipes.remove(<ProjRed|Core:projectred.core.part:40>);
-
 //Remote IO Recipes
 
 recipes.remove(<RIO:tile.machine>);
@@ -735,6 +749,182 @@ recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:1>, [[<ore:blockSteel>
 recipes.addShaped(<Railcraft:tile.railcraft.machine.alpha:6>, [[steelplate, <ore:paneGlass>, steelplate], [<ore:gemEmerald>, <minecraft:dispenser>, <ore:gemEmerald>], [steelplate, <ore:paneGlass>, steelplate]]);
 recipes.addShaped(<Railcraft:tile.railcraft.frame>, [[ironplate, ironplate, ironplate], [stick, null, stick], [stick, stick, stick]]);
 
+//Carpenters Blocks
 
+recipes.remove(<CarpentersBlocks:blockCarpentersBlock>);
+recipes.remove(<CarpentersBlocks:blockCarpentersSlope>);
+recipes.remove(<CarpentersBlocks:blockCarpentersBarrier>);
+recipes.remove(<CarpentersBlocks:blockCarpentersLever>);
+recipes.remove(<CarpentersBlocks:blockCarpentersLadder>);
+recipes.remove(<CarpentersBlocks:blockCarpentersHatch>);
+recipes.remove(<CarpentersBlocks:blockCarpentersGate>);
+recipes.remove(<CarpentersBlocks:blockCarpentersTorch>);
+recipes.remove(<CarpentersBlocks:blockCarpentersStairs>);
+recipes.remove(<CarpentersBlocks:itemCarpentersHammer>);
+recipes.remove(<CarpentersBlocks:itemCarpentersChisel>);
+recipes.remove(<minecraft:torch>);
+
+<CarpentersBlocks:blockCarpentersTorch>.displayName = "Torch";
+<minecraft:torch>.addTooltip("Use the Carpenters Blocks Torch Instead");
+
+
+recipes.addShaped(<CarpentersBlocks:blockCarpentersSlope> * 6, [[<ore:craftingToolSaw>.transformDamage(50), null, <ore:stickWoodSealed>], [null, <ore:stickWoodSealed>, <CarpentersBlocks:blockCarpentersBlock>], [<ore:stickWoodSealed>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersBarrier> * 4, [[null, <CarpentersBlocks:blockCarpentersBlock>, null], [<ore:stickWoodSealed>, <CarpentersBlocks:blockCarpentersBlock>, <ore:stickWoodSealed>], [null, <ore:craftingToolSaw>.transformDamage(50), null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersLever>, [[<ore:stickWoodSealed>, null, null], [<CarpentersBlocks:blockCarpentersBlock>, null, null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersLadder> * 4, [[<CarpentersBlocks:blockCarpentersBlock>, <ore:craftingToolSaw>.transformDamage(50), <CarpentersBlocks:blockCarpentersBlock>], [<CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>], [<CarpentersBlocks:blockCarpentersBlock>, null, <CarpentersBlocks:blockCarpentersBlock>]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersHatch>, [[<CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>], [<CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>], [null, <ore:craftingToolSaw>.transformDamage(50), null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersGate>, [[<ore:stickWoodSealed>, <CarpentersBlocks:blockCarpentersBlock>, <ore:stickWoodSealed>], [<ore:stickWoodSealed>, <CarpentersBlocks:blockCarpentersBlock>, <ore:stickWoodSealed>], [null, <ore:craftingToolSaw>.transformDamage(50), null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersTorch> * 2, [[<ore:gemCoal>, null, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersTorch> * 2, [[<ore:gemCharcoal>, null, null], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<CarpentersBlocks:itemCarpentersHammer>, [[ironplate, ironplate, <ore:craftingToolFile>.transformDamage(100)], [<ore:craftingToolHardHammer>.transformDamage(100), <CarpentersBlocks:blockCarpentersBlock>, ironplate], [null, <CarpentersBlocks:blockCarpentersBlock>, null]]);
+recipes.addShaped(<CarpentersBlocks:itemCarpentersChisel>, [[null, null, null], [<ore:craftingToolHardHammer>.transformDamage(100), ironplate, <ore:craftingToolFile>.transformDamage(100)], [null, <CarpentersBlocks:blockCarpentersBlock>, null]]);
+recipes.addShaped(<CarpentersBlocks:blockCarpentersStairs> * 4, [[<ore:craftingToolSaw>.transformDamage(50), null, <CarpentersBlocks:blockCarpentersBlock>], [null, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>], [<CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>, <CarpentersBlocks:blockCarpentersBlock>]]);
+recipes.addShaped(<gregtech:gt.metaitem.01:17889> * 3, [[<minecraft:planks:*>, <minecraft:planks:*>, null], [<minecraft:planks:*>, <ExtraTrees:misc:4>, null]]);
+recipes.addShaped(<gregtech:gt.metaitem.01:23889> * 2, [[<gregtech:gt.metaitem.01:17889>, null, null], [<gregtech:gt.metaitem.01:17889>, null, null]]);
+recipes.addShaped(<gregtech:gt.metaitem.01:23889> * 4, [[<ore:craftingToolSaw>.transformDamage(50), null, null], [<gregtech:gt.metaitem.01:17889>, null, null], [<gregtech:gt.metaitem.01:17889>, null, null]]);
+
+//Bluepower
+
+recipes.remove(<bluepower:ruby_pickaxe>);
+recipes.remove(<bluepower:ruby_axe>);
+recipes.remove(<bluepower:ruby_sword>);
+recipes.remove(<bluepower:ruby_shovel>);
+recipes.remove(<bluepower:ruby_hoe>);
+recipes.remove(<bluepower:sapphire_pickaxe>);
+recipes.remove(<bluepower:sapphire_axe>);
+recipes.remove(<bluepower:sapphire_sword>);
+recipes.remove(<bluepower:sapphire_shovel>);
+recipes.remove(<bluepower:sapphire_hoe>);
+recipes.remove(<bluepower:amethyst_pickaxe>);
+recipes.remove(<bluepower:amethyst_axe>);
+recipes.remove(<bluepower:amethyst_sword>);
+recipes.remove(<bluepower:amethyst_shovel>);
+recipes.remove(<bluepower:amethyst_hoe>);
+recipes.remove(<bluepower:copper_wire>);
+recipes.remove(<bluepower:iron_wire>);
+recipes.remove(<bluepower:stone_wire>);
+recipes.remove(<bluepower:stone_anode>);
+recipes.remove(<bluepower:paint_can:16>);
+recipes.remove(<bluepower:alloyfurnace>);
+recipes.remove(<bluepower:sorting_machine>);
+recipes.remove(<bluepower:block_breaker>);
+recipes.remove(<bluepower:igniter>);
+recipes.remove(<bluepower:buffer>);
+recipes.remove(<bluepower:deployer>);
+recipes.remove(<bluepower:circuit_database>);
+recipes.remove(<bluepower:transposer>);
+recipes.remove(<bluepower:ejector>);
+recipes.remove(<bluepower:relay>);
+recipes.remove(<bluepower:filter>);
+recipes.remove(<bluepower:retriever>);
+recipes.remove(<bluepower:regulator>);
+recipes.remove(<bluepower:item_detector>);
+recipes.remove(<bluepower:manager>);
+recipes.remove(<bluepower:part.pneumaticTube>);
+recipes.remove(<bluepower:part.pneumaticTubeOpaque>);
+recipes.remove(<bluepower:part.restrictionTube>);
+recipes.remove(<bluepower:part.restrictionTubeOpaque>);
+recipes.remove(<bluepower:part.magTube>);
+recipes.remove(<bluepower:part.accelerator>);
+recipes.remove(<bluepower:screwdriver>);
+recipes.remove(<bluepower:part.bluestoneWire>);
+recipes.remove(<bluepower:part.bluestoneWire.black>);
+recipes.remove(<bluepower:part.bluestoneWire.white>);
+recipes.remove(<bluepower:part.bluestoneWire.orange>);
+recipes.remove(<bluepower:part.bluestoneWire.magenta>);
+recipes.remove(<bluepower:part.bluestoneWire.light_blue>);
+recipes.remove(<bluepower:part.bluestoneWire.yellow>);
+recipes.remove(<bluepower:part.bluestoneWire.lime>);
+recipes.remove(<bluepower:part.bluestoneWire.pink>);
+recipes.remove(<bluepower:part.bluestoneWire.gray>);
+recipes.remove(<bluepower:part.bluestoneWire.silver>);
+recipes.remove(<bluepower:part.bluestoneWire.cyan>);
+recipes.remove(<bluepower:part.bluestoneWire.purple>);
+recipes.remove(<bluepower:part.bluestoneWire.blue>);
+recipes.remove(<bluepower:part.bluestoneWire.brown>);
+recipes.remove(<bluepower:part.bluestoneWire.green>);
+recipes.remove(<bluepower:part.bluestoneWire.red>);
+
+
+recipes.addShaped(<bluepower:stone_wire>, [[<ore:dustNikolite>, null, null], [<ore:waferStone>, null, null]]);
+recipes.addShaped(<bluepower:stone_anode>, [[null, <ore:dustNikolite>, null], [<ore:dustNikolite>, <ore:dustNikolite>, <ore:dustNikolite>], [<ore:waferStone>, <ore:waferStone>, <ore:waferStone>]]);
+recipes.addShaped(<bluepower:sorting_machine>, [[bluealloycable, mvconvey, bluealloycable], [goodcircuit, mvcasing, goodcircuit], [bluealloycable, <bluepower:filter>, bluealloycable]]);
+recipes.addShaped(<bluepower:block_breaker>, [[stainlessplate, stainlessplate, stainlessplate], [mvpiston, <IC2:itemToolDDrill:*>, mvpiston], [stainlessplate, stainlessplate, stainlessplate]]);
+recipes.addShaped(<bluepower:igniter>, [[bluealloycable, goodcircuit, bluealloycable], [mvarm, <gregtech:gt.metaitem.01:32474>, mvarm], [bluealloycable, goodcircuit, bluealloycable]]);
+recipes.addShaped(<bluepower:buffer>, [[bluealloycable, goodcircuit, bluealloycable], [mvconvey, <gregtech:gt.blockmachines:9232>, mvconvey], [bluealloycable, goodcircuit, bluealloycable]]);
+recipes.addShaped(<bluepower:deployer>, [[stainlessplate, mvarm, stainlessplate], [stainlessplate, <minecraft:chest>, stainlessplate], [stainlessplate, mvarm, stainlessplate]]);
+recipes.addShaped(<bluepower:circuit_database>, [[steelplate, <bluepower:part.integratedCircuit7x7>, steelplate], [<minecraft:bookshelf>, <bluepower:circuit_table>, <minecraft:bookshelf>], [steelplate, steelplate, steelplate]]);
+recipes.addShaped(<bluepower:transposer>, [[bluealloycable, mvconvey, bluealloycable], [goodcircuit, mvcasing, goodcircuit], [bluealloycable, mvpiston, bluealloycable]]);
+recipes.addShaped(<bluepower:ejector>, [[bluealloycable, <bluepower:buffer>, bluealloycable], [goodcircuit, mvcasing, goodcircuit], [bluealloycable, <bluepower:transposer>, bluealloycable]]);
+recipes.addShaped(<bluepower:relay>, [[goodcircuit, <bluepower:buffer>, goodcircuit], [bluealloycable, mvcasing, bluealloycable], [<bluepower:red_doped_wafer>, <bluepower:transposer>, <bluepower:red_doped_wafer>]]);
+recipes.addShaped(<bluepower:filter>, [[goodcircuit, goldplate, goodcircuit], [bluealloycable, mvcasing, bluealloycable], [<bluepower:red_doped_wafer>, mvpiston, <bluepower:red_doped_wafer>]]);
+recipes.addShaped(<bluepower:retriever>, [[<ore:plateBrass>, mvpump, <ore:plateBrass>], [<minecraft:ender_pearl>, mvcasing, <minecraft:ender_pearl>], [bluealloycable, goodcircuit, bluealloycable]]);
+recipes.addShaped(<bluepower:regulator>, [[<ore:plateBrass>, goodcircuit, <ore:plateBrass>], [<bluepower:red_doped_wafer>, mvcasing, <bluepower:red_doped_wafer>], [<bluepower:buffer>, <bluepower:item_detector>, <bluepower:buffer>]]);
+recipes.addShaped(<bluepower:item_detector>, [[<ore:plateBrass>, <minecraft:wooden_pressure_plate>, <ore:plateBrass>], [goodcircuit, mvcasing, goodcircuit], [bluealloycable, <bluepower:part.pneumaticTube>, bluealloycable]]);
+recipes.addShaped(<bluepower:manager>, [[bluealloycable, <bluepower:regulator>, bluealloycable], [goodcircuit, mvcasing, goodcircuit], [<bluepower:red_doped_wafer>, <bluepower:sorting_machine>, <bluepower:red_doped_wafer>]]);
+recipes.addShaped(<bluepower:part.pneumaticTube> * 2, [[<ore:plateBrass>, <ore:blockGlass>, <ore:plateBrass>]]);
+recipes.addShaped(<bluepower:part.pneumaticTubeOpaque> * 2, [[<ore:plateBrass>, <ore:plateSilver>, <ore:plateBrass>]]);
+recipes.addShaped(<bluepower:part.restrictionTube>, [[null, <minecraft:iron_bars>, null], [null, <bluepower:part.pneumaticTube>, null], [null, <minecraft:iron_bars>, null]]);
+recipes.addShaped(<bluepower:part.restrictionTubeOpaque>, [[null, <minecraft:iron_bars>, null], [null, <bluepower:part.pneumaticTubeOpaque>, null], [null, <minecraft:iron_bars>, null]]);
+recipes.addShaped(<bluepower:part.magTube> * 2, [[<bluepower:copper_wire>, <bluepower:copper_wire>, <bluepower:copper_wire>], [<ore:obsidianRod>, <bluepower:part.pneumaticTube>, <ore:obsidianRod>], [<bluepower:copper_wire>, <bluepower:copper_wire>, <bluepower:copper_wire>]]);
+recipes.addShaped(<bluepower:part.accelerator>, [[<ore:plateObsidian>, bluealloycable, <ore:plateObsidian>], [goodcircuit, null, goodcircuit], [<ore:plateObsidian>, bluealloycable, <ore:plateObsidian>]]);
+recipes.addShaped(<bluepower:screwdriver>, [[null, <ore:craftingToolHardHammer>.transformDamage(100), ironplate], [null, ironplate, <ore:craftingToolFile>.transformDamage(100)], [<ore:stickWood>, null, null]]);
+recipes.addShaped(<bluepower:part.bluestoneWire> * 6, [[bluealloywire, bluealloywire, bluealloywire]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.black> * 6, [[blackwool, rubbersheet, blackwool], [bluealloywire, bluealloywire, bluealloywire], [blackwool, rubbersheet, blackwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.red> * 6, [[redwool, rubbersheet, redwool], [bluealloywire, bluealloywire, bluealloywire], [redwool, rubbersheet, redwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.green> * 6, [[greenwool, rubbersheet, greenwool], [bluealloywire, bluealloywire, bluealloywire], [greenwool, rubbersheet, greenwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.brown> * 6, [[brownwool, rubbersheet, brownwool], [bluealloywire, bluealloywire, bluealloywire], [brownwool, rubbersheet, brownwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.blue> * 6, [[bluewool, rubbersheet, bluewool], [bluealloywire, bluealloywire, bluealloywire], [bluewool, rubbersheet, bluewool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.purple> * 6, [[purplewool, rubbersheet, purplewool], [bluealloywire, bluealloywire, bluealloywire], [purplewool, rubbersheet, purplewool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.cyan> * 6, [[cyanwool, rubbersheet, cyanwool], [bluealloywire, bluealloywire, bluealloywire], [cyanwool, rubbersheet, cyanwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.silver> * 6, [[lightgraywool, rubbersheet, lightgraywool], [bluealloywire, bluealloywire, bluealloywire], [lightgraywool, rubbersheet, lightgraywool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.gray> * 6, [[graywool, rubbersheet, graywool], [bluealloywire, bluealloywire, bluealloywire], [graywool, rubbersheet, graywool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.pink> * 6, [[pinkwool, rubbersheet, pinkwool], [bluealloywire, bluealloywire, bluealloywire], [pinkwool, rubbersheet, pinkwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.lime> * 6, [[limewool, rubbersheet, limewool], [bluealloywire, bluealloywire, bluealloywire], [limewool, rubbersheet, limewool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.yellow>, [[yellowwool, rubbersheet, yellowwool], [bluealloywire, bluealloywire, bluealloywire], [yellowwool, rubbersheet, yellowwool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.light_blue> * 6, [[lightbluewool, rubbersheet, lightbluewool], [bluealloywire, bluealloywire, bluealloywire], [lightbluewool, rubbersheet, lightbluewool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.magenta> * 6, [[magentawool, rubbersheet, magentawool], [bluealloywire, bluealloywire, bluealloywire], [magentawool, rubbersheet, magentawool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.orange> * 6, [[orangewool, rubbersheet, orangewool], [bluealloywire, bluealloywire, bluealloywire], [orangewool, rubbersheet, orangewool]]);
+recipes.addShaped(<bluepower:part.bluestoneWire.white> * 6, [[whitewool, rubbersheet, whitewool], [bluealloywire, bluealloywire, bluealloywire], [whitewool, rubbersheet,whitewool]]);
+
+//Enhanced Portals
+
+recipes.remove(portalframe);
+recipes.remove(<enhancedportals:frame:1>);
+recipes.remove(<enhancedportals:frame:2>);
+recipes.remove(<enhancedportals:frame:3>);
+recipes.remove(<enhancedportals:frame:4>);
+recipes.remove(<enhancedportals:frame:6>);
+recipes.remove(<enhancedportals:frame:7>);
+recipes.remove(<enhancedportals:frame:8>);
+recipes.remove(<enhancedportals:frame:9>);
+recipes.remove(<enhancedportals:dbs>);
+recipes.remove(<enhancedportals:blank_portal_module>);
+recipes.remove(<enhancedportals:location_card>);
+recipes.remove(<enhancedportals:blank_upgrade>);
+recipes.remove(<enhancedportals:glasses>);
+recipes.remove(<enhancedportals:wrench>);
+
+recipes.addShaped(portalframe, [[tungstencable, chromeplate, tungstencable], [chromeplate, ivemitter, chromeplate], [tungstencable, chromeplate, tungstencable]]);
+recipes.addShaped(<enhancedportals:frame:1>, [[tungstencable, ultimatecircuit, tungstencable], [tungstencable, portalframe, tungstencable], [mastercircuit, tungstencable, mastercircuit]]);
+recipes.addShaped(<enhancedportals:frame:2>, [[tungstencable, <minecraft:redstone>, tungstencable], [<minecraft:redstone>, portalframe, <minecraft:redstone>], [tungstencable, <minecraft:redstone>, tungstencable]]);
+recipes.addShaped(<enhancedportals:frame:3>, [[null, ivsensor, null], [<minecraft:ender_pearl>, portalframe, <minecraft:ender_pearl>], [null, <minecraft:ender_pearl>, null]]);
+recipes.addShaped(<enhancedportals:frame:4>, [[null, monitor, null], [monitor, <enhancedportals:frame:3>, monitor], [null, monitor, null]]);
+recipes.addShaped(<enhancedportals:frame:6>, [[null, <ore:plateEmerald>, null], [datacircuit, portalframe, datacircuit], [null, <ore:plateDiamond>, null]]);
+recipes.addShaped(<enhancedportals:frame:7>, [[tungstencable, ivpump, tungstencable], [<minecraft:bucket>, portalframe, <minecraft:bucket>], [tungstencable, ivpump, tungstencable]]);
+recipes.addShaped(<enhancedportals:frame:8>, [[tungstencable, ivconvey, tungstencable], [<minecraft:chest>, portalframe, <minecraft:chest>], [tungstencable, ivconvey, tungstencable]]);
+recipes.addShaped(<enhancedportals:frame:9>, [[tungstencable, <gregtech:gt.blockmachines:45>, tungstencable], [mastercircuit, portalframe, mastercircuit], [tungstencable, <gregtech:gt.blockmachines:45>, tungstencable]]);
+recipes.addShaped(<enhancedportals:dbs> * 4, [[ivcasing, <minecraft:ender_pearl>, ivcasing], [<minecraft:ender_pearl>, ivfield, <minecraft:ender_pearl>], [ivcasing, <minecraft:ender_pearl>, ivcasing]]);
+recipes.addShaped(<enhancedportals:blank_portal_module>, [[tungstencable, tungstencable, tungstencable], [tungstencable, ultimatecircuit, tungstencable], [tungstencable, tungstencable, tungstencable]]);
+recipes.addShaped(<enhancedportals:location_card>, [[<ore:foilIron>, <minecraft:paper>, <ore:foilIron>], [<minecraft:paper>, datacircuit, <minecraft:paper>], [<ore:foilIron>, <ore:dyeBlue>, <ore:foilIron>]]);
+recipes.addShaped(<enhancedportals:blank_upgrade>, [[null, datacircuit, null], [<ore:foilIron>, <minecraft:paper>, <ore:foilIron>], [null, <ore:dyeRed>, null]]);
+recipes.addShaped(<enhancedportals:glasses>, [[<ore:dyeBlue>, null, <ore:dyeRed>], [<ore:lensDiamond>, <ore:stickIron>, <ore:lensDiamond>], [<ore:stickIron>, null, <ore:stickIron>]]);
+recipes.addShaped(<enhancedportals:wrench>, [[<ore:stickIron>, null, <ore:stickIron>], [null, <ore:screwIron>, null], [null, <ore:stickIron>, null]]);
+
+//Chicken Chunks
+
+recipes.remove(<ChickenChunks:chickenChunkLoader>);
+
+recipes.addShaped(<ChickenChunks:chickenChunkLoader>, [[<minecraft:ender_pearl>, <ore:plateGold>, <minecraft:ender_pearl>], [<minecraft:ender_pearl>, endercore, <minecraft:ender_pearl>], [<minecraft:ender_pearl>, <minecraft:enchanting_table>, <minecraft:ender_pearl>]]);
 
 print("Injection Completed --Ow, that Hurt.");
